@@ -13,6 +13,7 @@
 		D87BAB111C67F74D00AAC406 /* Twitter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D87BAB0F1C67F74D00AAC406 /* Twitter.xcdatamodeld */; };
 		D87BAB131C67F74D00AAC406 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D87BAB121C67F74D00AAC406 /* Assets.xcassets */; };
 		D87BAB161C67F74D00AAC406 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D87BAB141C67F74D00AAC406 /* LaunchScreen.storyboard */; };
+		D8CC596C1C67FCFA00A96E9E /* TwitterClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CC596B1C67FCFA00A96E9E /* TwitterClient.swift */; };
 		E00DE80D46A04BFF44CD388E /* Pods_Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD6C1E7F3566F8B7F3E1A36D /* Pods_Twitter.framework */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +29,8 @@
 		D87BAB121C67F74D00AAC406 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D87BAB151C67F74D00AAC406 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D87BAB171C67F74D00AAC406 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D8CC596B1C67FCFA00A96E9E /* TwitterClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterClient.swift; sourceTree = "<group>"; };
+		D8CC596D1C6800D200A96E9E /* Twitter-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Twitter-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +83,7 @@
 		D87BAB071C67F74D00AAC406 /* Twitter */ = {
 			isa = PBXGroup;
 			children = (
+				D8CC59651C67FC7C00A96E9E /* API */,
 				D87BAB081C67F74D00AAC406 /* AppDelegate.swift */,
 				D87BAB0A1C67F74D00AAC406 /* ViewController.swift */,
 				D87BAB0C1C67F74D00AAC406 /* Main.storyboard */,
@@ -87,8 +91,17 @@
 				D87BAB141C67F74D00AAC406 /* LaunchScreen.storyboard */,
 				D87BAB171C67F74D00AAC406 /* Info.plist */,
 				D87BAB0F1C67F74D00AAC406 /* Twitter.xcdatamodeld */,
+				D8CC596D1C6800D200A96E9E /* Twitter-Bridging-Header.h */,
 			);
 			path = Twitter;
+			sourceTree = "<group>";
+		};
+		D8CC59651C67FC7C00A96E9E /* API */ = {
+			isa = PBXGroup;
+			children = (
+				D8CC596B1C67FCFA00A96E9E /* TwitterClient.swift */,
+			);
+			name = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -213,6 +226,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8CC596C1C67FCFA00A96E9E /* TwitterClient.swift in Sources */,
 				D87BAB0B1C67F74D00AAC406 /* ViewController.swift in Sources */,
 				D87BAB091C67F74D00AAC406 /* AppDelegate.swift in Sources */,
 				D87BAB111C67F74D00AAC406 /* Twitter.xcdatamodeld in Sources */,
@@ -327,10 +341,13 @@
 			baseConfigurationReference = D421E675B8E1A8219ECE384B /* Pods-Twitter.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Twitter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.codepath.Twitter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Twitter/Twitter-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -339,10 +356,12 @@
 			baseConfigurationReference = 729730E5FB2ADE9FA1396EB6 /* Pods-Twitter.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Twitter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.codepath.Twitter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Twitter/Twitter-Bridging-Header.h";
 			};
 			name = Release;
 		};
