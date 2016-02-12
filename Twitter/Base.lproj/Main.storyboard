@@ -48,17 +48,11 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <animations/>
                                 <state key="normal" title="Logout"/>
-                                <connections>
-                                    <action selector="onLogout:" destination="h4T-xM-rL2" eventType="touchUpInside" id="o5R-uo-ogc"/>
-                                </connections>
                             </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <connections>
-                        <outlet property="onLogout" destination="Chc-O2-rn2" id="ly6-ch-EgJ"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rlL-iA-2yb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

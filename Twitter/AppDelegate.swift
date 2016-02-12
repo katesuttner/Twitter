@@ -31,8 +31,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func userDidLogout()  {
-        let vc = storyboard.instantiateViewController()
+        let vc = storyboard.instantiateViewControllerWithIdentifier("TwitterViewController") as UIViewController
         window?.rootViewController = vc
+        
         
     }
     
