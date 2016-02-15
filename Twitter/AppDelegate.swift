@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "userDidLogout", name: userDidLoginNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "userDidLogout", name: userDidLogoutNotification, object: nil)
         
         if User.currentUser != nil {
             
@@ -33,8 +33,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func userDidLogout()  {
         let vc = storyboard.instantiateViewControllerWithIdentifier("TwitterViewController") as UIViewController
         window?.rootViewController = vc
-        
-        
     }
     
     func applicationWillResignActive(application: UIApplication) {
