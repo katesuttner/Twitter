@@ -48,6 +48,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <animations/>
                                 <state key="normal" title="Logout"/>
+                                <connections>
+                                    <action selector="onLogout:" destination="h4T-xM-rL2" eventType="touchUpInside" id="4YU-vq-cvi"/>
+                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="181" sectionHeaderHeight="28" sectionFooterHeight="28" id="V2a-LU-1P7" customClass="tableView">
                                 <rect key="frame" x="0.0" y="58" width="320" height="510"/>
