@@ -168,6 +168,9 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="V2a-LU-1P7" id="w2v-en-XgB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rlL-iA-2yb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

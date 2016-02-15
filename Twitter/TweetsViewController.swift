@@ -12,26 +12,37 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     
     
     var tweets: [Tweet]?
-    @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.dataSource = self
+        tableView.delegate = self
         
+        tableView.contentInset = UIEdgeInsetsMake(50, 0, 0, 0)
 
         // Do any additional setup after loading the view.
         TwitterClient.sharedInstance.homeTimelineWithParams(nil, completion: { (tweets, error) -> () in
-            self.tweets = tweets 
+            self.tweets = tweets
+            self.tableView.reloadData()
         })
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tweets!.count
+        
+        if let tweeeeeet = self.tweets {
+            return tweeeeeet.count
+        }
+        return 0
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("TweetCell", forIndexPath: indexPath) as! TweetCell
+        
+        cell.nameLabel.text=tweets![indexPath.row].user!.name!
+        cell.profileImageView.setImageWithURL(NSURL(string: tweets![indexPath.row].user!.profileImageUrl!)!)
         
         return cell
     }
