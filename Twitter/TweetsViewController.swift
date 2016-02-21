@@ -6,6 +6,7 @@
 //  Copyright © 2016 CodePath. All rights reserved.
 //
 
+import AFNetworking
 import UIKit
 
 class TweetsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
@@ -41,10 +42,54 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("TweetCell", forIndexPath: indexPath) as! TweetCell
         
-        cell.nameLabel.text=tweets![indexPath.row].user!.name!
+        cell.nameLabel.text = tweets![indexPath.row].user!.name!
         cell.profileImageView.setImageWithURL(NSURL(string: tweets![indexPath.row].user!.profileImageUrl!)!)
+       //Added 2/17/16
+        
+        cell.timeStampLabel.text = calculateTimeStamp(tweets![indexPath.row].createdAt!.timeIntervalSinceNow)
+       // cell.timeStampLabel.text = tweets![indexPath.row].createdAt
+        cell.screenNameLabel.text = tweets![indexPath.row].user!.screenname
+        cell.tweetTextLabel.text=tweets![indexPath.row].text
+//        cell.retweetButton.setImage(<#T##image: UIImage?##UIImage?#>, forState: <#T##UIControlState#>)
+        //cell.favouriteCount.setImage
+//        cell.replyButton.setImage(<#T##image: UIImage?##UIImage?#>, forState: <#T##UIControlState#>)
+//        cell.retweetButton.setImage(<#T##image: UIImage?##UIImage?#>, forState: <#T##UIControlState#>)
+//        cell.likeButton.setImage(<#T##image: UIImage?##UIImage?#>, forState: <#T##UIControlState#>)
+        
+        
         
         return cell
+    }
+    
+    
+    //This function is curtsey of @r3dcrosse
+    func calculateTimeStamp(timeTweetPostedAgo: NSTimeInterval) -> String {
+        // Turn timeTweetPostedAgo into seconds, minutes, hours, days, or years
+        var rawTime = Int(timeTweetPostedAgo)
+        var timeAgo: Int = 0
+        var timeChar = ""
+        
+        rawTime = rawTime * (-1)
+        
+        // Figure out time ago
+        if (rawTime <= 60) { // SECONDS
+            timeAgo = rawTime
+            timeChar = "s"
+        } else if ((rawTime/60) <= 60) { // MINUTES
+            timeAgo = rawTime/60
+            timeChar = "m"
+        } else if (rawTime/60/60 <= 24) { // HOURS
+            timeAgo = rawTime/60/60
+            timeChar = "h"
+        } else if (rawTime/60/60/24 <= 365) { // DAYS
+            timeAgo = rawTime/60/60/24
+            timeChar = "d"
+        } else if (rawTime/(3153600) <= 1) { // YEARS
+            timeAgo = rawTime/60/60/24/365
+            timeChar = "y"
+        }
+        
+        return "\(timeAgo)\(timeChar)"
     }
     
     
