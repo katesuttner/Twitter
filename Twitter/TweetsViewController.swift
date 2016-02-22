@@ -22,6 +22,10 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         tableView.dataSource = self
         tableView.delegate = self
         
+        // autoresizing for the cell
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 120
+        
         tableView.contentInset = UIEdgeInsetsMake(50, 0, 0, 0)
 
         // Do any additional setup after loading the view.
